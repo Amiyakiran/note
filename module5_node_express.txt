@@ -1,0 +1,261 @@
+MODULE -V
+---------
+
+NODE AND EXPRESS
+----------------
+
+Backend concept
+    --------------
+    - client -server Architecture - sending request and response between application
+    - api - application programming interface
+    - RESTful api - http request - json formate.
+    - CRUD - create read update delete. operate - 
+    - CORS - Cross origin resourse sharing.
+
+ MVC Architecture
+     -----------------
+     1) VIEW - send the Request 
+     2) ROUTING - set path to resolve the  request    
+     3) CONTROLLER - set the logic to resolve the request   
+     4) MODEL - structure to store data.
+     5) DATABASE - used to store data.
+
+
+NODE
+
+-  not a programming Language
+-  it provides a run time Environment fOR javaScript to run outside the Browser 
+-  with Some javaScript Libraries.
+
+Installation
+------------
+https://nodejs.org/en/download
+
+Features
+--------
+ - extremely fast -  mutiple request can be resolved - v8
+ - based on Asyncgronous Programming'
+ - singled threaded
+ - Highly Scalable - 
+ - open source-
+
+
+  extension - filename.js
+
+ what are node Modules
+  ---------------------
+  -modules are files/javaScript Libraries in node.js.
+  - if we want to include this module in our file we need to import that module.
+    import  - require('path')
+    export - module.exports
+
+ - type of modules
+ -------------------
+   1) custome Modules
+   2) BuildIn Modules.
+
+  Type of BuildIn Modules
+  -----------------------
+  1) file System Module:
+     -------------------
+      - allow us to worl with the files inside your program/file/computer
+      - import
+       syntax
+       ---------
+        keyword variable = require('fs')
+
+        common uses
+
+         1) Read files  - fs.readFile()
+         2) to create files - fs.open()
+         3) Update file  - fs.writeFile()   
+         4) Delete file - fs.unlink()
+         5) Rename file - fs.rename()
+         
+    2) http module
+       ---------------
+       -  Allows Node.js to transfer data over http request.
+       - http module can create an http server that listens to server ports and gives a response back to the client.
+        - method - createServer() - to create server.
+                 - listen() - to listen to the server port   
+    3) https module - more secured protocol will be allowed and accept https request    
+    4) Event Modules - To Generate Events
+         - class EventEmitter () 
+             -object - new classname
+             - to create an event  - object.on()
+             - execute - emit()  
+    5) crypto - tool to encryption, hashing
+
+
+Global Objects
+--------------
+- In Node.js, the global object represents the global scope, and it provides global variables and functions that are available throughout your application. 
+- Eg - console in console.log - display content
+     - setTimeout and setInterval -These functions are used for scheduling code execution after a specified delay or at regular intervals.
+     - clearTimeout and clearInterval - Used to stop the execution of a scheduled timeout or interval.
+     - __dirname and __filename - These variables provide the directory and filename of the currently executing script.
+     -  global - The global object itself can be used to define global variables.
+     - process - The process object provides information and control over the current Node.js process.
+     - require and module - These are used for module management in Node.js.
+
+
+environmental variables
+------------------------
+- Environment variables are predetermined values that are typically used to provide the ability to configure a value in your code from outside of your application.
+- Environment variables provide information about the environment in which the process is running. 
+
+
+
+
+
+
+EXPRESS
+
+- flexible web application framework for Node.js
+
+how to setup a server using node and express
+--------------------------------------------
+
+npm install -y
+npm install dotenv cors express mangoose
+
+.gitignore
+.env file
+db folder - connection.js
+routes - router.js
+controller - production.js
+models
+
+
+
+
+index.js
+----------
+
+//Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. 
+
+require('dotenv').config();
+
+
+//import express
+const express = require('express')
+
+//import cors
+const cors = require('cors')
+
+//import router
+const router = require('./Routes/router')
+/* const appMiddleware = require('./middleware/appMiddleware') */
+
+//import mongoose
+require('./DB/connections')
+
+
+//create expressServer -Creates an Express application. The express() function is a top-level function exported by the express module.
+
+const pfServer = express()
+//cors is used by server
+pfServer.use(cors())
+//parsing json -Returns middleware that only parses json and only looks at requests where the Content-Type header matches the type option.(CONTENT-TYPE - APLLICATION/JSON) - convert into javaScript understanding object
+pfServer.use(express.json())
+
+//middleware appmiddleware - only me
+/* pfServer.use(appMiddleware) */
+
+//use router in server
+pfServer.use(router)
+
+//export uploads
+//first arg - how other apllication should use it 
+//second argument - to export that file from server
+pfServer.use('/uploads',express.static('./uploads'))
+
+//customize port- bydefault - 3000
+
+const PORT = 4000 || process.env.PORT
+
+//run server app
+pfServer.listen(PORT,()=>{
+    console.log(`SERVER RUNNING SUCCESSFULLY AT PORT NUMBER ${PORT}`);
+})
+
+//http get request resolving to http://localhost:4000/ 
+pfServer.get('/',(req,res)=>{
+    res.send(`<h1 style="color:green;">Project server started and waiting fro client server !! </h1>`)
+})
+
+/* //post request
+pfServer.post('/',(req,res)=>{
+   res.send("post requested")
+})
+
+
+
+
+ CORS
+------
+- CORS stands for Cross-Origin Resource Sharing. It is a security feature implemented by web browsers to control how web pages in one domain can request and interact with resources hosted on another domain.
+- in simple terms connect and controls the request flow between the frontend and the server.
+
+
+
+creating and handling routes
+---------------------------
+Creating and handling routes in an Express.js server involves defining routes for different URL paths and specifying the corresponding actions or middleware functions to execute when those routes are accessed. 
+
+Servername.httprequest('path',logic to exeute in this path)
+})
+eg:
+    pfServer.post('/',(req,res)=>{
+   res.send("post requested")
+})
+	
+
+
+
+MIDDLEWARES
+--------------
+- middleware is a function which have access to request response cycle.
+- it have three arguments -
+   1) first argument - request
+   2) second - response
+   3) thrid - next - only after calling next the control will be given to the next function in req-res cycle.
+- position of these arguments are important
+
+Two type of middleware
+----------------------
+1) application specific - it effect the entire application - so each and every request will go through middleware
+2) router specific - affect only a particular path
+
+
+
+CRUD Operations
+---------------
+C - create - post http request
+R - read - get http request
+U - update - put http request
+D - Delete - delete http request
+
+
+
+Authentication (JWT)
+--------------------
+JWT - JSON WEB TOKEN
+--------------------
+JWTs are commonly used in modern web applications to securely transmit information between the client and the server.
+- token creation
+    - import jwt library - const jwt = require('jsonwebtoken')
+    - sign algorithm is used to create token which have basically two arguments -1) data to be stored inside token 
+                                                                                - 2) secrete key 
+    eg: jwt.sign({userId:existingUser._id},"supersecretkey12345")
+- verify token
+    - verify method is used
+    - first argument is the token to be verified and the second argument must be the secrete key
+       eg:  jwt.verify(token,"supersecretkey12345")
+
+
+
+
+
+
+

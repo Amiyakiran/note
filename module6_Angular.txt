@@ -1,0 +1,269 @@
+ANGULAR
+---------
+- Angular is a popular open-source web application framework 
+- Developed and maintained by Google. 
+- It is written in TypeScript 
+- helps to build dynamic single-page web applications (SPAs).
+- latest version - angular 17 - nov
+- use real DOM
+
+
+Basic Commands
+--------------
+Angular CLI is a command-line tool that simplifies the process of creating, building, and deploying Angular applications. It provides commands for generating components, services, modules, and more.
+    - ng v - to check the version
+    - npm install -g @angular/cli- lastest version.
+    - npm uninstall -g @angular/cli - to uninstall the angular cli
+    - npm install -g @angular/cli@version - to get the particular version.
+
+- To create a project - ng new project-name
+    - routing - yes - if you need to setup path
+    - stylesheet -css
+- to run a project - ng serve 
+    - to run and open in default browser - ng serve --open
+                                         - ng s -o  
+
+- create components - ng g c component-name
+- create services - ng g s  foldername/servicename or ng g s servicename
+- create pipe - ng g p foldername/pipename
+- create guards - ng g g foldername/guardname
+
+
+
+TypeScript
+----------
+- JavaScript is a dynamically typed language, meaning that variable types are determined at runtime.Where as TypeScript is a superset of JavaScript that adds static typing to the language. 
+- JavaScript code is executed directly by browsers for client-side scripting or by server-side environments like Node.js.Where as TypeScript code needs to be compiled into JavaScript before it can be executed. This compilation step is done using the TypeScript compiler  
+
+ files in Angular Applications
+ -----------------------------
+ 1).gitignore - hold the file name which doesnot need to mobe to git.
+ 2) .editorConfig - vscode configuration
+ 3) package.json
+ 4) package-lock.json  
+ 5) README - discription
+ 6) tsconfig - typeScript configuration
+ 7) node_module
+ 8) src
+     - index.html - only page that render.
+     - style.css - global styling
+     - main.ts - global behaviour
+     - app component
+         - app.component.html - to create content
+         - app.component.css - to create style.
+         - app.component.ts - to give behaviour
+         - app.component.spec.ts - for testing purpose
+- app-routing.module.ts - path specify
+
+9)  angular.json - angular configuration.
+10) app.module.ts - holds thrid party contents(components, libraries etc...)
+
+
+Module
+------
+Angular applications are organized into modules, which help in organizing code and managing dependencies. A module encapsulates related components, services, and directives.
+
+
+Components and Life cycles,
+---------------------------
+
+- Components are the basic building blocks of angular application.
+- components are created using the command - ng g c component-name
+- Each component consist of four files
+    - 1) .html file - for creating the content
+    - 2) .css file - for styling the content
+    - 3) .ts file - for writing the logic
+    - 4) .spec.ts file - for testing purpose
+
+
+Lifecycle event sequence
+------------------------
+After your application instantiates a component or directive by calling its constructor, Angular calls the hook methods you have implemented at the appropriate point in the lifecycle of that instance.
+
+refer : https://angular.io/guide/lifecycle-hooks
+
+
+Data binding
+------------
+data binding is the way of data sharing within a component
+
+1) one way data binding
+    1) ts(component)- html(view)
+        - string Interpolation - {{}}
+        - property binding 
+             [attribute]= "value"
+    2) html(view) -ts(component)
+       - data sharing using events - (event) = "value"
+       - data sharing using $events - (event) ="value($event)"
+       - template variable - #variable - placed on tag
+
+2) two way data binding
+    - data sharing in both direction - 
+    - acheived using [(ngModel)]
+    - formsModule is import to get [(ngModel)] 
+    - must give name attribute to the input tag
+
+
+
+Dependency Injection
+---------------------
+- data sharing between component and a predefined class /class
+- syntax 
+    - constructor(access-specifier componentsproperty:dependentclass){}
+- if dependency injection is done in function the inject method is used
+ - syntax 
+    - const variable = inject(dependentclass)
+
+   
+Directives
+----------
+ - is used to give additional behaviour to the html documents.
+
+ - there are three type of Directive
+        - 1) component Directive
+        - 2) Structural Directive
+        - 3) Attribute directive.
+
+- structure - conditional rendering
+   - *ngIf
+   - *ngFor  - for item of arrayname
+   - *ngSwitch
+
+- attribute directive - used to provide styles to html elements - ngClass
+
+ 
+
+Services
+--------
+- used to share data between two components.
+- command - ng g s foldername/servicename
+- They are injectable and can be used across multiple components.
+
+
+Routing
+------- 
+- Angular provides a router module for handling navigation and defining routes. This enables the creation of single-page applications with multiple views.
+- set path in the app-routing.module.ts as objects
+   eg:  {
+    	  path:'path',component:Componentname
+  	}
+- routerLink in the html tags
+- Router class can also be used for navigation - eg: navigateByUrl('path')
+
+
+Angular Forms
+--------------
+Angular includes powerful form-handling features, allowing developers to easily create and validate forms. It supports both template-driven forms and reactive forms.
+
+1) template driven
+   - Template-driven forms are based on directives in the template and are less explicit than reactive forms.
+   - Suitable for simpler scenarios, where the logic is primarily handled in the template. 
+   - import FormsModule in your module to use template-driven forms
+        // app.module.ts
+	import { FormsModule } from '@angular/forms';
+
+	@NgModule({
+  		imports: [FormsModule],
+  	// ...
+	})
+    - create variable in the ts file
+    - bind the varaible in the hmtl file using ngModel
+
+2) Model driven (reactive forms)
+    - Reactive forms are more explicit and offer greater control over form logic. 
+    - They are suitable for complex forms and scenarios where you need to handle form controls programmatically.
+    - Import ReactiveFormsModule in your module to use reactive forms.
+	// app.module.ts
+	import { ReactiveFormsModule } from '@angular/forms';
+
+	@NgModule({
+  	imports: [ReactiveFormsModule],
+  	// ...
+	})
+    - Dependency inject FormBuilder and create formGroup
+    - in .html file Bind form controls using formControlName and name attribute
+
+
+pipes
+-----
+- They are simple functions that take an input (the data to be transformed) and return a modified output.
+- Pipes can be used to format data, manipulate strings, perform mathematical operations, and more.
+- Angular have both built-in pipes as well as costume pipes
+  built-in pipes -eg: Date ,UpperCasePipe and LowerCasePipe, CurrencyPipe etc
+- symbol - |
+- command to create pipe - ng g p foldername/pipename
+
+
+
+Asynchronous function – Observable, 
+------------------------------------
+- Angular extensively uses observables for handling asynchronous operations. Observables are used for events, data streams, and handling responses from HTTP requests.
+- They are part of the Reactive Extensions for JavaScript (RxJS) library, which is commonly used in Angular applications.
+- created using the Observable class in RxJS. 
+- To receive values from an observable, you need to subscribe to it
+- it can be partial observable(except all series response) or call back arrow function(only 200 series)
+- Advantage of Observable over promise is - observable can resolve multiple request at a time where as in promise only one request
+
+
+Http Client
+-----------
+Angular includes an HTTP client module for making HTTP requests to servers. It provides a convenient way to communicate with backend services and APIs.
+
+
+Angular Guards
+--------------
+- In Angular, guards are used to control access to certain routes or components based on certain conditions.
+- There are several types of guards in Angular, including
+	1) CanActivate: This guard is used to determine if a route can be activated. It is often used to check if a user is authenticated before allowing access to a particular route.
+
+	2) CanActivateChild: Similar to CanActivate, but specifically used to guard child routes.
+
+	3) CanDeactivate: Used to determine if a route can be deactivated. This is often used to confirm with the user before leaving a form with unsaved changes.
+
+	4) CanLoad: Used to check if a lazy-loaded module can be loaded.
+
+	5) Resolve: Used to perform data fetching before the route is activated.
+
+
+
+Behaviour Subject
+-----------------
+- In Angular, a BehaviorSubject is a type of observable that stores the latest value emitted and allows subscribers to access it even if they subscribe after the value has been emitted. 
+- It's a part of the RxJS library, which is often used in Angular for handling asynchronous operations.
+- WORKING
+  1) Initialization:
+     import { BehaviorSubject } from 'rxjs';
+
+     const mySubject = new BehaviorSubject('Initial Value');
+   2) Accessing: 
+	mySubject.subscribe(value => {
+  		console.log('Received value:', value);
+	});
+    3) Updating the Value:
+	mySubject.next('New Value');
+
+
+
+project
+-------
+1) Employee Portal
+     - angular material ui
+     - angular and json-server
+2) E-cart
+    - highcarts
+    - mean 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

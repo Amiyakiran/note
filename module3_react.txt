@@ -1,0 +1,539 @@
+ MODULE -III
+-----------
+
+REACT 
+
+- React is a popular open-source web application library 
+- Developed and maintained by facebook. 
+
+React - frontend Technology
+ -----------------------------
+ - to create UI
+
+ UI - user interface
+ ------------------
+  the point where the user - computer(software) interaction/communication take place
+
+- react make use of javascript libraries to create UI
+
+refer libraries vs framework
+
+ Parameter	                        Framework	                                             Library
+
+Control Flow	      Controls the overall flow of the application	           Developer retains control over the flow
+
+Extensiveness	      More comprehensive, providing a broad set of tools	   Focuses on specific functionality or problem-solving
+
+Flexibility	      More rigid with strict conventions and guidelines	           More flexible, allowing selective usage
+
+Architectural	      May enforce its own architectural patterns	           Does not dictate the overall application structure
+
+Examples	      Ruby on Rails, Django, Flutter	                           jQuery, NumPy, Gson, Boost, OpenCV,React
+
+Inversion of Control  Framework manages the flow and calls developer’s code	   Developer decides when and how to use the library
+
+
+
+
+features of react
+-----------------
+1) to create UI
+
+2) single page application : web application or website that interact with the user by dynamically rewritting the current webpage with new data from the webserver , instead of the default method of loading all the pages separately.
+
+3) Declarative application: 
+       doesnot access directly real DOM
+
+ 4) VIRTUAL DOM:   
+      virtual dom is created by React
+      diffing : process of comparing virtual dom with real dom
+      Reconciliation : process of updating real dom
+
+ 5) immutable variable: cannot change value 
+
+ 6) pure function : functions that ascepts immutable Arguments and return an object - result only depend on the Arguments
+   eg: react components
+
+ 7) data sharing : unidirection - parent - child 
+
+ 8) language : JSX - javascript XML (combination of javascript HTML, CSS)
+        - jsx expression must be inside a single parent element
+        - empty tag - react fragment
+        - js code - jsx - {}
+
+ 9) Transpiling:  process of converting JSX into HTML,CSS, javascript
+                   BABEL - convert  
+
+  how to create a react project
+  ------------------------------
+
+  - create a folder
+
+  1) npx create-react-app projectname
+       npx - node package execute - execute
+       npm - node package manager - install  
+
+  2)change directory - cd projectname
+
+  3) run - npm start     
+
+
+  files
+  ----
+  1) readme.md : holds description of the react application
+  2) package.json - holds npm configuration - dependencies  - installed libraries
+  3) package-lock.json - it holds versions of installed libraries
+  4) .gitignore - holds files that neednot to be pushed into git 
+  5) node_modules - its a copy of installed libraries
+      npm install
+  6)public - holds those files which can be accessed throughout the project
+
+  7) index.html - is the only page that load in the browser
+
+  8)reportWebVitals.js - used to measure the performance of react application
+
+
+  component : basic unit of react application    
+
+  - should start with capital letter
+  - inorder to use components in other files 
+       1) export - export default componentname;
+       2) import - import variable from 'url'
+       3) self closing tag - <componentname/>
+
+  different type of components
+
+  1) functional components / stateLess Component
+  -------------------------
+  eg: App components
+  - name should starts with capital letter
+
+   syntax
+
+          function Componentname (){
+               //jscode
+               return(
+                    //jsx code
+               )
+          }
+          export default componentname
+ - it doesnot have state
+
+  2) class components / Stateful components
+
+      - name should starts with capital letter
+
+      - syntax
+       class componentname extends React.Component{
+          //jscode
+          render(){
+               return(
+                    //jsxcode
+                    <div></div>
+               ) 
+          }
+       }
+       export default componentname
+    - - it does have state
+
+  how data sharing happens in react components
+  --------------------------------------------
+       -unidirectional - parent to child
+       - In parent   key ={value}
+
+       - In child     props -object
+                      {key:value}
+         child(props)
+
+         or 
+
+ 	object destructing -
+ 	child({key,------})
+
+ how to style react component using CSS
+ --------------------------------------
+ 1) inline 
+ 2) External
+ 3) css module
+
+
+ 1)inline
+   -------
+ html: style ="property:value"
+
+ jsx : style={{property:propertyValue}} - place the style as a object with property as key and propertyValue as value
+
+ 2) External 
+    --------
+     -1) create an  external file with extension as filename.css
+     -2) import the file where it is to be used -> import 'url'
+
+  3) css module
+
+   - create an external file with extension - filename.module.css 
+   - can store into a variable and can style using this variable
+   - can create only in src folder
+   - global access  
+
+   React event handling
+   -------------------- 
+   html : onclick="function()"
+
+   jsx :  onClick = {}
+
+         function without argument
+             onClick = {function name}
+         function with argument
+             onClick = {()=>functionname(arg)}
+
+  how to get value from input box
+  -------------------------------
+  html : inputid.value
+
+  jsx :  onChange(callback) - function_call  
+         value is present in e.target.value
+
+ conditional rendering
+ ---------------------
+ Render : loading to browser
+
+ - conditional rensering means rendering based on a condition. Condition can be given as 
+ 1) if - turthy - && - in case of one condition
+ 2) if else - ternary - ?:  - in case of two or more condition
+
+
+ react State
+ -----------
+ - state is an object which stores properties of a react class component. {key:value}
+ - when the state changes the entire component re-render.
+   setState() - to change the value of a state 
+
+ life cycle of react class component
+ -----------------------------------
+ 1) Mounting Phase : component added to DOM
+     - constructor() - initialise state
+     - getDerivedStateFromProps()- modify the state value with props
+     - render() - load to DOM
+     - componentDidMount() -last method - network request
+
+ 2) Updating Phase : editing of Component
+     - getDerivedStateFromProps()-modify the state value with props
+     - shouldComponentUpdate - true or false
+     - render()-load to DOM
+     - getSnapShotBeforeUpdate()- give access to previous states before update
+     - compountDidUpdate()- last method
+
+  3) Unmounting Phase : removal of component from  DOM   
+     - componentWillUnmount() - invoked just before the unmount to cancel if there any network is done etc ...inshot it cleanup the component before it is removed from the DOM
+
+
+  Hooks
+  -----
+  hooks 
+  - predefined function
+  - to provide state and lifecycle to functional components.   
+
+  rules
+  ----
+  1) import hooks from react library to use inside a functional component
+  2) can call hook only at the top section of then functional component
+  3) cannot use hooks on conditional bases.
+
+
+  Hooks are of different type:
+  --------------------------
+  1) Predefined Hooks               2)Customs Hooks
+     -eg: useState ,useEffect,
+          useNavigate etc...
+
+     - to create state in functional component.
+     - returns - state and function which can change the state. 
+     - can store - string , number , objects, array .....
+
+
+  rest operator - (...) - instructs the computer to add whatever otherInfo (arguments) supplied by the user into an array.
+  -------------
+
+  React Form   
+  ------------
+  - materialUI  OR React-Bootstrap can be used to create form
+
+ form Validation
+ ------------------
+  Regular Expression : to check the pattern of the given string
+
+  rules to create Regular Expression:
+     1) should start and end with forword Slash.
+     2) Expression should begin with ^(rise to)
+     3) Expression should ends with $ (dollar)
+
+      eg: /^[0-9]$/
+
+  match() method : if the pattern matches with the given string it returns array else returns null
+
+
+React Project
+-----------
+
+
+1) simple Interest App
+
+  - react component
+  - react Hook
+  - react form
+  - User Input Validation
+  - Conditional Rendering
+
+
+2) Netflix
+
+  - component Reuse
+  - Api in React
+    - Axios- JavaScript Library to make Http requests - web browser , node.js Environment
+    - Axios is a promise-based HTTP Client
+    - Timeouts
+
+	syntax
+	-------
+          axios({
+                  method: 'get',
+                  url: 'http://bit.ly/2mTM3nY'
+                 }).then((result)=>{
+                           return result})
+                   .catch((err)=>{
+                    return err})
+
+
+     - axios Instance
+       ---------------
+         - its an independent object that allows you to define default configuration for http requests. instead of setting configuration options repeatedly for each request.
+                 const instance = axios.create({
+  			baseURL: 'https://some-domain.com/api/',
+ 			timeout: 1000,
+  			headers: {'X-Custom-Header': 'foobar'}
+			});
+
+	- all keys are not mandatory 
+
+
+  - useEffect Hook
+    ---------------
+
+ 	- The useEffect Hook allows you to perform side effects in your components.
+ 	- Some examples of side effects are: fetching data, directly updating the DOM, and timers.
+	- useEffect runs on every render.
+ 	- useEffect accepts two arguments. The second argument is optional.
+
+      		useEffect(<function>, <dependency>)
+ 
+ 	- dependency can be used to control sideeffect/useEffect
+
+    		1) no dependency :useEffect runs on every render.
+       			useEffect(() => {
+  			//Runs on every render
+			});
+    		2) empty array as dependency  : useEffect call happens in the first Render
+			useEffect(() => {
+  			//Runs only on the first render
+			}, []);
+
+    		3) props or state : useEffect call happens in the first Render as well as everything time the value of props or state changes
+			useEffect(() => {
+  				//Runs on the first render
+  				//And any time any dependency value changes
+			}, [prop, state]);
+
+
+ - addEventListner - to monitor the events,
+
+
+
+
+3) media/video player
+  -------------------
+
+
+    - Navigation
+           - 1) library - react-router-dom
+                    npm i react-router-dom
+             2) place the entire application inside BrowserRouter Tag
+	     3) place all components that need routing inside a Routes tag
+    -<Link> - used to naviagte to a specific location
+	- to attribute we need to specify the path(url)
+   
+   - React Bootstrap - npm install react-bootstrap bootstrap
+          - import of each tag is important to get the access of that tag inside our project
+
+   - bootswatch - to import themes to the project
+ 	- download the bootstrap.min.css file and paste that inside src folder
+	- import  bootstrap.min.css file in index.js  
+     
+   - use of google fonts and fontawesome
+         - paste the link in the head of index.html file     
+
+   - useNavigate Hooks - to naviagte
+	 const navigateByUrl = useNavigate()
+         onClick={()=>navigateByUrl('/home')}   
+
+   - json-server
+      - JSON Server is a lightweight and easy-to-use Node.js tool that simulates a RESTful API using a JSON file as the data source. 
+      - With JSON Server, front-end developers can create mock APIs without the need to write complex server-side code, or when a backend API isn't ready yet.
+
+      - Features of JSON Server
+            - It is easy and quick to set up. It is also user-friendly for front-end developers and newbie back-end developers.
+            - It supports common HTTP methods like the GET, POST, PUT, and DELETE methods, just like a real backend API server would.
+	    - With JSON Server, you can perform Create, Read, Update, Delete (CRUD) operations on data to build an interactive application.
+	    - JSON Server offers developers the ability to create custom routes to handle more complex scenarios.
+
+      - How to Set up JSON Server in an Application
+         - create a folder for server
+         - create package.json file - npm init -y
+         - install json-server library  to run json file - npm i json-server
+              package-lock.json - versions of library
+              nodule_modules - copy of library
+         - create .gitignore file to ignore node_modules file  since it is a large file to store in git repo and easy to install
+         - create db.json file to store json data
+         - create index.js file since its the entry point to run the file (main in package.json - index.js is written)
+         - inside index.js
+
+               	//import json-server library in index.js file
+		const jsonServer = require('json-server')
+
+		//create a server for  media player app
+		const mediaPlayerServer = jsonServer.create()
+
+		//create path for json file
+		const router = jsonServer.router("db.json")
+
+		// middleware to convert json to js
+		const middleware = jsonServer.defaults()
+
+		//setup port for running server
+		const port = 4000 || process.env.PORT
+
+		//use miidleware and router in server
+		mediaPlayerServer.use(middleware)
+		mediaPlayerServer.use(router)
+
+		// to listen server for resolving request from client
+		mediaPlayerServer.listen(port,()=>{
+   			 console.log(`media player server started at ${port} and waiting for client request`);
+		}) 
+          - inside package.json - remove test key from script object and add start key with value node index.js
+		"scripts": {
+     			 "start":"node index.js"
+  			},
+          - to run server - npm start
+
+
+    - react-toastify - To customize alert - npm i react-toastify
+         - Import the library where it is used
+                import { ToastContainer, toast } from 'react-toastify';
+                import 'react-toastify/dist/ReactToastify.css';
+         - <ToastContainer/>
+
+    - other data sharing method in react 
+        - Redux - between unrelated components
+        - context api -between unrelated components
+        - state lifting - between sibLing (components with a common parent)
+             - if several components need to reflect the same changing data, lift the shared state up to their closest common ancestor.
+
+    -Intl.DateTimeFormat : object enables language-sensitive date and time formatting.
+  
+ 
+Prop Drilling
+-------------------
+Prop drilling occurs when a parent component generates its state and passes it down as props to its children components that do not consume the props – instead, they only pass it down to another component that finally consumes it.
+
+Coupling
+-----------
+Interdependency of components is called coupling . Prop drilling increases coupling
+
+Elongated Prop
+---------------
+Props which is neither creates nor consumes by a component is called Elongated prop.
+
+4) counter Application
+
+Redux
+------
+ Action 
+- Function used to create Action is - createAction()
+- Where the logic is written
+- output of action is called payload
+- Payload is was to the reducer
+
+ Reducer
+- Function used to create Reducer is createReducer()
+- can only change the value of state in store
+
+ Store 
+- Function used to create store is  configureStore()
+- store is where the state are created
+- all components in the project have direct access to store. 
+
+  redux toolkit
+- since many of the redux functions got deprecated redux toolkit have been introduced.
+- in toolkit actions and reducer files are not created separately.
+- the slice file holds both action and reducer
+- Function used to create slice is  - createSlice()
+- it returns both action and reducer
+
+ Hooks
+-------
+   useDispatch() - hook is used to call/dispatch functions from the action
+   useSelector() - hook is used to access the state in the store.
+
+5) E-cart
+---------
+- use of rEdux in multipage application.
+custome Hook
+------------
+Hook created by the Developer , which is not predefined.
+
+Predefined Hook
+---------------
+useNavigate() - used to navigate from one page to another.
+
+
+6) Restaurant Application
+---------------------------
+Thunk
+------
+- use of path parameter
+
+
+
+7) project fair
+-----------------
+- content type - multipart/form data - if there is uploaded content.
+               - application/json - if there is no uploaded content.
+-middleware
+ - it can control req-res cycle.
+ - application middle ware
+ - router specific middleware
+    1)JSON Web token - used to generate token for authorization
+          - sign - to generate
+          - verify - to verify the data.
+          - iat - time at which the token is generated.
+            
+    2) Multer - middleware to get the multipart-form data.
+
+       - Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files.
+       - INSTALLATION - npm i multer
+       - Multer will not process any form which is not multipart (multipart/form-data).
+       - Multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.
+       - diskStorage()- Returns a StorageEngine implementation configured to store files on the local file system
+       - now(): number
+           -Returns the number of milliseconds elapsed since midnight, January 1, 1970 Universal Coordinated Time (UTC).
+       - Express.Multer.File.originalname: string
+           -Name of the file on the uploader's computer.
+
+-
+
+
+
+
+
+
+

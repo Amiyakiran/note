@@ -1,0 +1,78 @@
+
+                                                        SET - A
+
+1) Write a program to print the given pattern.	(10 mark)
+
+       * * * * * * * * *                
+ 	 * * * * * * *                  
+  	   * * * * *                    
+  	     * * *                 
+    	       *              
+  	     * * *                                                               
+ 	   * * * * *                                                        
+ 	  * * * * * * *                                                                   
+	* * * * * * * * *                                                              
+
+
+2) MovieDetails app: Create a MovieDetails app which takes movie name from the input box and give Details of the movie using the given api(`https://www.omdbapi.com/?apikey=${api_key}&t=${moviename}`) and display details such as - title , Relaeased Date, Plot, Actors, Ratings, images, Language, Director, Genre.(use -Async-await method) - (20 Mark)
+
+api_key = fa1c9c03
+
+
+
+                                                          SET - B
+
+ 1) Write a program to print the given pattern.	(10 mark)
+
+
+                         1  
+                        
+ 	              2  3  4
+
+  	           5  6  7  8  9   
+                               
+  	        10 11 12 13 14 15 16  
+                                
+    	     17 18 19 20 21 22 23 24 25                                  
+  	
+
+2) MovieDetails app: Create a MovieDetails app which takes movie name from the input box and give Details of the movie using the given api(`https://www.omdbapi.com/?apikey=${api_key}&t=${moviename}`) and display details such as -  title , Relaeased Date, Plot, Actors, Ratings, images, Language, Director, Genre.(use -AJAX method) - (20 Mark)
+
+api_key = fa1c9c03
+
+
+
+
+                                                         SET - C
+
+ 1) Write a program to print the given pattern.	(10 mark)
+
+
+                c)        A   A  A  A  A  A  A
+ 	
+  	                      A           A
+
+  	                         A     A
+
+    	                            A
+
+  	                         A     A 
+                                   
+ 	                      A            A
+
+                          A   A  A  A  A   A   A
+
+
+
+2)MovieDetails app: Create a MovieDetails app which takes movie name from the input box and give Details of the movie using the given api(`https://www.omdbapi.com/?apikey=${api_key}&t=${moviename}`) and display details such as - title , Relaeased Date, Plot, Actors, Ratings, images, Language, Director, Genre.(use -Fetch method) - (20 Mark)
+
+api_key = fa1c9c03
+
+
+
+
+
+
+
+
+

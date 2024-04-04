@@ -70,8 +70,8 @@ features of react
   - create a folder
 
   1) npx create-react-app projectname
-       npx - node package execute - execute
-       npm - node package manager - install  
+       npx - node package execute - execute-NPX allows you to execute Node.js packages without having to install them globally on your system.
+       npm - node package manager - install  -NPM allows developers to easily install, update, and manage packages and libraries needed for their projects. 
 
   2)change directory - cd projectname
 
@@ -208,25 +208,36 @@ features of react
  - when the state changes the entire component re-render.
    setState() - to change the value of a state 
 
+
+
+Use variables for local data that doesn't affect the component's rendering.
+Use state for data that, when changed, should trigger a re-render of the component.
+In summary, while both variables and state can hold data within a functional component, state is specifically designed for managing data that influences the component's rendering behavior.
+
+
  life cycle of react class component
  -----------------------------------
  1) Mounting Phase : component added to DOM
-     - constructor() - initialise state
-     - getDerivedStateFromProps()- modify the state value with props
-     - render() - load to DOM
-     - componentDidMount() -last method - network request
+     - constructor() - initializing state and binding event handlers.
+     - getDerivedStateFromProps()- modify the state value with props- It returns an object to update the state, or null to indicate that no state update is necessary.
+     - render() - It returns the JSX that represents the component's output.
+     - componentDidMount() -last method - network request-It's often used to perform side effects like data fetching or integrating with other JavaScript frameworks.
 
  2) Updating Phase : editing of Component
      - getDerivedStateFromProps()-modify the state value with props
-     - shouldComponentUpdate - true or false
-     - render()-load to DOM
-     - getSnapShotBeforeUpdate()- give access to previous states before update
-     - compountDidUpdate()- last method
+     - shouldComponentUpdate -This method is invoked before rendering when new props or state are being received. It returns true if the component should re-render, or false if it should not.
+     - render()-It returns the JSX that represents the component's output.
+     - getSnapShotBeforeUpdate()- This method is called right before the changes from the virtual DOM are to be reflected in the actual DOM. It allows you to capture some information from the DOM (e.g., scroll position) before it's potentially changed.
+     - compountDidUpdate()- This method is called after the component is updated in the DOM. It's often used to interact with the DOM or perform additional side effects.
 
   3) Unmounting Phase : removal of component from  DOM   
      - componentWillUnmount() - invoked just before the unmount to cancel if there any network is done etc ...inshot it cleanup the component before it is removed from the DOM
 
+4) Error Handling Phase:
 
+static getDerivedStateFromError(): This method is called when there is an error during rendering, allowing the component to render a fallback UI. It returns an object to update the state.
+
+componentDidCatch(): This method is called after an error has been thrown by a descendant component. It's used to log error information.
   Hooks
   -----
   hooks 
@@ -531,7 +542,8 @@ Thunk
 
 -
 
-
+- onMouseEnter={() => setOpen(true)} 
+    onMouseLeave={() => setOpen(false)}
 
 
 

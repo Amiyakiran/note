@@ -23,27 +23,34 @@ Java Script
 
 2) Datatype
   -----------------
+primitive
+----------
 
     1) text - string
     2) integer - number
-    3) true or false : boolean
-    4) BigInt
-    5) Undefined
-    6) Null
-    7) Symbol
-    8) object
+    3) true or false - boolean
+    4) BigInt - Represents whole numbers larger than 2^53 - 1 or smaller than -2^53 + 1. Example: let bigNum = 123456789012345678901234567890n;
+    5) Undefined -  Represents a variable that has been declared but not assigned a value. Example: let x;
+    6) Null - Represents the intentional absence of any value. Example: let x = null
+    7) Symbol - Represents a unique identifier
+
+non primitive
+---------------
+    8) object - Represents a collection of key-value pairs. Example: let obj = { name: "John", age: 30 };
 
 -primitive and non primitive
+----------------------------
+primitive data types are basic and immutable, while non-primitive data types are more complex, mutable, and composed of primitive or other non-primitive data types.
 
 3) Variable : used to store Data
    ----------
     Identifiers: Rules to create variables -
     -----------
-          a) starts with letter(A-Z or a-z) , dollar sign($) or underscore(_) but prefer letter
+          a) starts with letter(A-Z or a-z),digits , dollar sign($) or underscore(_) but prefer letter
           b) subsequent character may be letters, digits,underscore or dollarsigns
           c) two or more word -no space between 
                                 underscore can be used in between two words
-                                second word can starts with capital letter
+                                second word can starts with capital letter(
                                 numbers can also be used
           d)Numbers are not allowed as the first character in names                     
     Variable names are case sensitive

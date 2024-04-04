@@ -166,6 +166,22 @@ css grid
   }
 }
 
+position properties
+    - fixed
+    - relative
+    - absolute
+
+transform properties
+     - translate
+     - rotate
+     - scale
+
+z-index = specifies the stack order of an element
+        - workd only for positioned element
+        - element with higher value will be positioned at the top
+        - positive as well as negative
+
+css variables
 
 media query - to make the web page responsive 
 --------------

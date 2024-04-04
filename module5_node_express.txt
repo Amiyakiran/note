@@ -26,6 +26,8 @@ NODE
 -  not a programming Language
 -  it provides a run time Environment fOR javaScript to run outside the Browser 
 -  with Some javaScript Libraries.
+- Node.js provides an environment where JavaScript code can be executed server-side, allowing developers to build server-side applications using JavaScript. Before the advent of Node.js, JavaScript was primarily used for client-side scripting within web browsers. 
+- Node.js achieves this by using the V8 JavaScript engine, which is developed by Google and powers the Chrome web browser.
 
 Installation
 ------------
@@ -44,7 +46,7 @@ Features
 
  what are node Modules
   ---------------------
-  -modules are files/javaScript Libraries in node.js.
+  -modules are files/javaScript Libraries that can be used in Node.js applications to provide specific functionality.
   - if we want to include this module in our file we need to import that module.
     import  - require('path')
     export - module.exports
@@ -58,7 +60,8 @@ Features
   -----------------------
   1) file System Module:
      -------------------
-      - allow us to worl with the files inside your program/file/computer
+      - allow us to work with the files inside your program/file/computer
+      - ile system modules in Node.js provide functionalities for working with the file system on your computer. They allow you to perform various operations such as reading from and writing to files, creating and deleting files and directories, and more.
       - import
        syntax
        ---------
@@ -75,10 +78,15 @@ Features
     2) http module
        ---------------
        -  Allows Node.js to transfer data over http request.
+
        - http module can create an http server that listens to server ports and gives a response back to the client.
         - method - createServer() - to create server.
-                 - listen() - to listen to the server port   
-    3) https module - more secured protocol will be allowed and accept https request    
+                 - listen() - to listen to the server port  
+
+       -The http module in Node.js provides functionality for creating HTTP servers and clients. It allows you to make HTTP requests to other servers or create your own HTTP server to handle incoming requests. 
+    3) https module - more secured protocol will be allowed and accept https request   
+
+            
     4) Event Modules - To Generate Events
          - class EventEmitter () 
              -object - new classname

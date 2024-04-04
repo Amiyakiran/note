@@ -1,0 +1,75 @@
+SDLC stands for Software Development Life Cycle, and it is a systematic process used in the development of software applications. In the context of web development, the SDLC refers to the steps or phases that developers follow to design, develop, test, deploy, and maintain a web application. The main purpose of SDLC is to produce high-quality software that meets or exceeds customer expectations while staying within time and budget constraints. The typical stages of SDLC in web development include:
+
+Planning:
+
+Define the project scope, objectives, and requirements.
+Identify risks and plan resources, time, and budget.
+Analysis:
+
+Gather and analyze requirements from stakeholders.
+Create a functional specification document.
+Design:
+
+Develop system architecture and design.
+Create a technical specification document.
+Plan the database structure if applicable.
+Implementation (Coding):
+
+Write code according to the design specifications.
+Perform unit testing on individual components.
+Testing:
+
+Conduct various testing activities, such as functional testing, integration testing, and system testing.
+Identify and fix bugs and issues.
+Deployment:
+
+Release the application for public use or within the organization.
+Install and configure the software on servers.
+Maintenance and Support:
+
+Address issues and bugs discovered after deployment.
+Implement updates, enhancements, or new features as needed.
+Provide ongoing support and maintenance.
+Monitoring and Evaluation:
+
+Monitor the application's performance and gather user feedback.
+Evaluate the success of the project and identify areas for improvement.
+SDLC methodologies can vary, and popular approaches include Waterfall, Agile, Scrum, and DevOps. The choice of methodology depends on the project's nature, size, and specific requirements. Agile methodologies, including Scrum, are often preferred in web development due to their iterative and flexible nature, allowing for continuous adaptation to changing requirements.
+
+
+WATER FALL MODEL
+----------------
+
+The Waterfall model is a traditional and linear approach to software development. In the Waterfall method, the development process is divided into distinct phases, and each phase must be completed before moving on to the next one. It follows a sequential flow, resembling a waterfall where progress flows in one direction—downward through phases.
+
+Here are the typical phases of the Waterfall model in software development:
+
+Requirements Gathering:
+
+Gather and document all requirements from stakeholders.
+System Design:
+
+Create a system design based on the gathered requirements.
+Define the overall architecture and design specifications.
+Implementation (Coding):
+
+Write code based on the system design.
+This phase involves actual programming.
+Testing:
+
+Conduct testing activities, starting with unit testing of individual components.
+Proceed to integration testing and system testing.
+Deployment:
+
+Deploy the complete system after successful testing.
+Maintenance:
+
+Address any issues or bugs discovered in the deployed system.
+Provide ongoing maintenance and support.
+One of the main characteristics of the Waterfall model is its inflexibility once a phase is completed. Changes to requirements or design are challenging to incorporate once the development process has moved to the next phase. This can lead to potential difficulties in adapting to evolving project needs.
+
+While the Waterfall model has been criticized for its lack of flexibility in handling changes during the development process, it can be suitable for projects with well-defined and stable requirements, where the entire scope can be planned and documented upfront. However, in many modern software development scenarios, more flexible methodologies such as Agile or iterative approaches are often favored for their adaptability to changing requirements and faster delivery of incremental results.
+
+
+
+

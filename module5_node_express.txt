@@ -124,16 +124,26 @@ EXPRESS
 how to setup a server using node and express
 --------------------------------------------
 
-npm install -y
-npm install dotenv cors express mangoose
 
-.gitignore
-.env file
-db folder - connection.js
-routes - router.js
-controller - production.js
-models
-
+ steps to create server
+    ----------------------
+    1) create a folder for the server.
+    2) install package.json - install command npm init -y - npm configuration.
+    3) update package.json - script
+    4) install 
+          - Express.js - its a framework of node.js - install command - npm i express
+          - cors - Cross origin resourse sharing - install command   - npm i cors
+          - dotenv - it is a zero dependency  module that loads environment variables from .env file to process.env
+             environment variable - provides informations about the environment in which the process is running.
+             - install command npm i dotenv.
+          -  npm i express cors dotenv
+          - (npm install dotenv cors express mangoose)
+     5) create .env file to hold environment variable 
+     6) create .gitignore file.
+     7) create index.js file- for server     
+     8) create router.js file inside Router Folder.
+     9) controller
+     10) models
 
 
 

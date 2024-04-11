@@ -399,7 +399,7 @@ React Project
       - How to Set up JSON Server in an Application
          - create a folder for server
          - create package.json file - npm init -y
-         - install json-server library  to run json file - npm i json-server
+         - install json-server library  to run json file - npm i json-server@0.17.4
               package-lock.json - versions of library
               nodule_modules - copy of library
          - create .gitignore file to ignore node_modules file  since it is a large file to store in git repo and easy to install

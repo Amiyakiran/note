@@ -104,6 +104,7 @@ STRUCTURE
           - db.users.updateOne({uname:"jacob"},{$inc:{age:2}}) - increment
           - db.users.updateOne({uname:"jacob"},{$inc:{age:-2}}) - decrement
           - db.users.updateOne({uname:'kyle'},{$push:{hobbies:"cycling"}}) -add a new hobby to user kyle.
+          - db.your_collection_name.updateOne({ name:"kyle" },{ $set: { "address.code": 8888 } })
 
       15)delete
           - db.users.deleteOne({uname:"jacob"})  - delete one document

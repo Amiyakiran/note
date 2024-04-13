@@ -104,7 +104,9 @@ STRUCTURE
           - db.users.updateOne({uname:"jacob"},{$inc:{age:2}}) - increment
           - db.users.updateOne({uname:"jacob"},{$inc:{age:-2}}) - decrement
           - db.users.updateOne({uname:'kyle'},{$push:{hobbies:"cycling"}}) -add a new hobby to user kyle.
-          - db.your_collection_name.updateOne({ name:"kyle" },{ $set: { "address.code": 8888 } })
+          - db.your_collection_name.updateOne({ name:"kyle" },{ $set: { "address.code": 8888 } }) - update a key inside a object
+          - db.students.updateOne({name:'kyle'},{$unset:{code:""}})- to remove a particular key from document
+
 
       15)delete
           - db.users.deleteOne({uname:"jacob"})  - delete one document
@@ -125,7 +127,7 @@ STRUCTURE
                }
 
          - db.users.aggregate({$lookup:{from:'projects',localField:'_id',foreignField:'userId',as:'userProject'}})
-
+         - both localField and ForeignField should have same value then only joing happens.
 
 
 creating project in  Mongodb atlas - cloud based

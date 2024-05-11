@@ -99,9 +99,14 @@ data binding is the way of data sharing within a component
 
 2) two way data binding
     - data sharing in both direction - 
-    - acheived using [(ngModel)]
-    - formsModule is import to get [(ngModel)] 
-    - must give name attribute to the input tag
+      - template driven form : 
+         -acheived using [(ngModel)]
+         -form will design in html first
+         - formsModule is import to get [(ngModel)] 
+         - use ngModel attribute : syntax - [(ngModel)] = "class property",if it is inside from tag,must set name attribute of that input tag.
+
+    - model driven form: first create form model inthe ts file
+
 
 
 

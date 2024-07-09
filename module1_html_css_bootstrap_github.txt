@@ -145,10 +145,32 @@ css box model
 
 Pseudo class
 ------------
-To define a special state of a element
+- To define a special state of a element
+- Pseudo-classes are used to style elements based on user interaction 
  eg: style on mouse hover
      style visited and unvisited link differently
      style elements when it gets focus etc....
+     :active,link(unvisited), visited , active
+     -:focus selector is used to select the element that has focus-allowed on elements that accept keyboard events or other user inputs.
+-  syntax
+		selector:pseudo-class {
+ 			 property: value;
+		}
+
+
+Pseudo element
+-------------
+- Pseudo-elements allow you to style certain parts of an element.
+- They are denoted by double colons (::) and create virtual elements that don't exist in the HTML structure.
+-  allow the addition of content.
+-  syntax
+		selector::pseudo-element {
+ 			 property: value;
+		}
+- eg: ::first-line, ::first-letter, ::after, ::marker(pseudo-element selects the markers of list items)
+ ::selection (pseudo-element matches the portion of an element that is selected by a user.)
+::before
+-------------------------------------------------------------
 
 css grid
 --------

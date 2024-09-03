@@ -237,7 +237,17 @@ media query - to make the web page responsive
 Bootstrap
 ---------
 - most popular HTML,CSS,JavaScript framework for developing responsive, mobile first websites
+- Developed by twitter
 - connected using CDN - Content delivery network
+
+- core features of Bootstrap:
+  ----------------------------
+ 1) set of CSS classes
+ 2) Pre-Built Components:
+ 3) Responsive Grid System
+ 4) Customizable
+ 5) JavaScript Plugins : add interactive elements
+ 6) Browser Compatibility: compatible with all major browsers and devices 
 
 Grid class
 ----------
@@ -327,4 +337,10 @@ git clone url
 pull operation
 --------------
  git pull url
+
+
+TAILWIND 
+--------
+- It is a CSS Framework which allows developers to build custom designs quickly and efficiently.
+- 
 

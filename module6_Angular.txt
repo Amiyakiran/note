@@ -213,7 +213,33 @@ Asynchronous function – Observable,
 Http Client
 -----------
 Angular includes an HTTP client module for making HTTP requests to servers. It provides a convenient way to communicate with backend services and APIs.
+http client module 
+ ------------------
+ - it helps to make http requests to server 
+ - returns observable
+ - observables act as an interface to handle a variety of common asynchronous operations
+ - observable is a part rxjs library .
+ - it can handle more number of asynchronous functions at a time compared to promise 
+ - response of observable need to be accessed using subscribe function 
+ - subscription of the response can be done in two different ways 
+   1) partial observable - if there is a change of error 
+        syntax 
+        -----
+        subscribe({
+            next: - positive response ,
+            error: - negative response 
+        })
+   2) call back  - if there is no change of error / always a positive response 
+      syntax 
+      ----
+      subscribe(()=>{})
 
+
+  steps 
+  -----
+  1) import httpclientmodule in app.module.ts 
+  2) dependency inject httpClient class in services
+  3) create api using httpClient  
 
 Angular Guards
 --------------

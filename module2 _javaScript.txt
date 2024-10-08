@@ -303,6 +303,7 @@ DATA STRUCTURE :
           15) indexOf() - to find the index of an item in an array
           16) slice(index) - remove one element at a time
           17) reduceright()- function is same as that of reduce but iteration starts from right 
+          18) lastIndexOf() - method returns the index (position) of the last occurrence of a specified value in a string
 
       - Nested array : array inside another array
 

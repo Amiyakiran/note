@@ -4,7 +4,7 @@ ANGULAR
 - Developed and maintained by Google. 
 - It is written in TypeScript 
 - helps to build dynamic single-page web applications (SPAs).
-- latest version - angular 17 - nov
+- latest version - angular 18 - nov
 - use real DOM
 
 
@@ -39,11 +39,11 @@ TypeScript
  -----------------------------
  1).gitignore - hold the file name which doesnot need to mobe to git.
  2) .editorConfig - vscode configuration
- 3) package.json
- 4) package-lock.json  
+ 3) package.json - installed libraries
+ 4) package-lock.json - define the version of the installed tlibraries to maintained the consistency og version in different environments.  
  5) README - discription
- 6) tsconfig - typeScript configuration
- 7) node_module
+ 6) tsconfig - typeScript configuration and installation
+ 7) node_module - copy of installed libraries.
  8) src
      - index.html - only page that render.
      - style.css - global styling
@@ -58,6 +58,21 @@ TypeScript
 9)  angular.json - angular configuration.
 10) app.module.ts - holds thrid party contents(components, libraries etc...)
 
+bootstrapApplication(AppComponent, appConfig)
+  .catch((err) => console.error(err));
+- render the app component as the root component 
+- appconfig - to setup paths 
+- bootstrapapplication is the function to render the content in the browser - it returns promise 
+- error is return in catch
+
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration()]
+};
+
+provideZoneChangeDetection: Configures Angular to use Zone.js for change detection and optimizes the number of change detection cycles. - zone.js file manage asynchronous functions (http requests , timeouts , userInteractions)
+provideRouter(routes): Sets up the Angular Router with the provided route configurations.
+provideClientHydration(): Enables client-side hydration, which is particularly useful for SSR (Server-Side Rendering) scenarios.
 
 Module
 ------
@@ -95,7 +110,7 @@ data binding is the way of data sharing within a component
     2) html(view) -ts(component)
        - data sharing using events - (event) = "value"
        - data sharing using $events - (event) ="value($event)"
-       - template variable - #variable - placed on tag
+       - template refernce variable - #variable - placed on tag - to access/ refer a template to another template in the same page.
 
 2) two way data binding
     - data sharing in both direction - 

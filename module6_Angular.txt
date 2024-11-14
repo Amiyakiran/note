@@ -140,18 +140,27 @@ Directives
  - is used to give additional behaviour to the html documents.
 
  - there are three type of Directive
-        - 1) component Directive
+        - 1) component Directive -used to display components in browser using its selctors in any html page. 
         - 2) Structural Directive
-        - 3) Attribute directive.
+        - 3) Attribute directive. - used to provides styles to any html elements.
 
 - structure - conditional rendering
    - *ngIf
    - *ngFor  - for item of arrayname
    - *ngSwitch
 
-- attribute directive - used to provide styles to html elements - ngClass
+- attribute directive - used to provide styles to html elements - ngClass - conditional style to html elements.
+import {NgClass} from '@angular/common'
+import:[NgClass]
+when using ngClass - small letter n
+ngStyle.
 
- 
+control flow statements - same as that of structural directives - more simplied way - introduced in angular 17 onwords. 
+---------------------------------------------------------------
+ @if  - ngIf
+ @ for - ngFor
+ @switch
+- benefit - no need to import they are globally available. were as structural directives need to be imported before usage.
 
 Services
 --------

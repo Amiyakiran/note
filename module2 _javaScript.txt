@@ -53,9 +53,14 @@ primitive
     7) Symbol - Represents a unique identifier - Represents a unique and immutable identifier, mainly used for object properties.
              - let sym = Symbol("description");
                console.log(sym);  // Output: Symbol(description)
+             -  Each Symbol() call produces a new, unique value.
+             -  This is especially useful in cases where you are writing libraries or modules, and you want to avoid naming collisions with other code.
 non primitive
 ---------------
     8) object - Represents a collection of key-value pairs. Example: let obj = { name: "John", age: 30 };
+     - These are objects, and they are mutable (can be modified).
+     - objects , arrays , functions comes under object datatype. 
+     - but when we take typeOf function , it return function since , typeof predefine function handles it as function type since it is callable.
 
 -primitive and non primitive
 ----------------------------

@@ -25,15 +25,34 @@ Java Script
   -----------------
 primitive
 ----------
+- These are immutable (they cannot be changed after creation) and are directly assigned values.
+- we say primitives are immutable, we mean that the value itself cannot be changed once it's assigned. You can reassign a variable to a new value, but this does not modify the original value
 
-    1) text - string
-    2) integer - number
-    3) true or false - boolean
+    1) text - Represents a sequence of characters.
+           let name = "Alice";
+           console.log(name);  // Output: Alice
+    2) integer - number-  Represents both integer and floating-point numbers.
+             let age = 25;  // Integer
+             let price = 19.99;  // Floating point
+             console.log(age);  // Output: 25
+             console.log(price);  // Output: 19.99
+    3) true or false -  Represents a logical value true or false.
+             let isActive = true;
+             let isCompleted = false;
+             console.log(isActive);  // Output: true
     4) BigInt - Represents whole numbers larger than 2^53 - 1 or smaller than -2^53 + 1. Example: let bigNum = 123456789012345678901234567890n;
+               - let largeNumber = 1234567890123456789012345678901234567890n;
+                console.log(largeNumber);  // Output: 1234567890123456789012345678901234567890n
     5) Undefined -  Represents a variable that has been declared but not assigned a value. Example: let x;
+            -A variable that has been declared but not assigned a value.
+             let x;
+             console.log(x);
     6) Null - Represents the intentional absence of any value. Example: let x = null
-    7) Symbol - Represents a unique identifier
-
+              let emptyValue = null;
+              console.log(emptyValue);  // Output: null
+    7) Symbol - Represents a unique identifier - Represents a unique and immutable identifier, mainly used for object properties.
+             - let sym = Symbol("description");
+               console.log(sym);  // Output: Symbol(description)
 non primitive
 ---------------
     8) object - Represents a collection of key-value pairs. Example: let obj = { name: "John", age: 30 };

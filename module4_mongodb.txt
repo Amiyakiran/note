@@ -1,8 +1,12 @@
 MODULE -IV
 ----------
+DATABASE 
+--------
+A database is an organized collection of data that is stored and managed in a way that makes it easy to retrieve, update, and manipulate.
 
-MONGODB
------------
+- data base can be classified into two 
+ 1) sql - relational database(RDBMS)
+ 2) Nosql 
 Sql Vs NoSql
 -----------
 SQL (Structured Query Language) and NoSQL (Not Only SQL) are two broad categories of database management systems, each with its own set of characteristics, advantages, and use cases.
@@ -71,6 +75,7 @@ STRUCTURE
      4) db.collectionName.find() - to get all documents inside particular collection
      5) db.users.findOne({condition}) - to get a particular document satisfing the condition 
      6) db.users.find().limit(number) - get a particular number of documents.
+       db.users.find().skip(n) - to skip the documents.
      7) db.users.find().sort({username:-1}) - sort in descending order
      8) db.users.find().sort({username:1}) - sort in ascending order
 
@@ -186,9 +191,7 @@ schema
 
 
 
-DATABASE 
---------
-A database is an organized collection of data that is stored and managed in a way that makes it easy to retrieve, update, and manipulate.
+
 
 Types of databases include:
 ---------------------------
@@ -384,4 +387,26 @@ In BSON (binary), the number 25 would be encoded in binary, consuming less space
 
 Indexing in MongoDB is a technique used to improve the speed and performance of database queries. It helps MongoDB locate and retrieve documents more quickly by maintaining an ordered structure of specific fields in the database. Without indexing, MongoDB would need to scan every document in a collection to find the ones matching a query, which could be inefficient, especially for large datasets.
 
+
+
+
+Create a database:
+--------------------
+
+
+1) CREATE DATABASE my_database;
+2) Select a database: USE my_database;
+3) Create a table:
+      CREATE TABLE table_name (
+        column1 datatype,
+        column2 datatype,
+           ...
+          );
+4) Insert data into a table:
+        INSERT INTO table_name (column1, column2)
+         VALUES (value1, value2);
+5) Select data:
+    SELECT * FROM table_name;
+6) Exit the Database
+    EXIT;
 

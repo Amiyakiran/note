@@ -185,3 +185,203 @@ schema
  
 
 
+
+DATABASE 
+--------
+A database is an organized collection of data that is stored and managed in a way that makes it easy to retrieve, update, and manipulate.
+
+Types of databases include:
+---------------------------
+1) Relational Database (RDBMS)1
+- it store data in tables with rows and columns and use SQL (Structured Query Language) to manage and manipulate data.
+eg: MySQL, PostgreSQL, Oracle, and SQL Server.
+
+SELECT: Retrieves data from the database.
+INSERT INTO: Adds new data to the database.
+UPDATE: Modifies existing data.
+DELETE: Removes data from the database.
+
+SELECT * FROM Employees;
+This will return all rows and columns in the table.
+
+
+To get only employees from the "HR" department:
+
+sql
+Copy
+SELECT FirstName, LastName FROM Employees WHERE Department = 'HR';
+
+
+To add a new employee to the "Employees" table:
+
+sql
+Copy
+INSERT INTO Employees (EmployeeID, FirstName, LastName, Age, Department)
+VALUES (4, 'Alice', 'Williams', 29, 'Finance');
+
+
+3. UPDATE - Modifying data
+If you want to change the department of the employee with EmployeeID = 2:
+
+sql
+Copy
+UPDATE Employees
+SET Department = 'Sales'
+WHERE EmployeeID = 2;
+
+
+4. DELETE - Removing data
+To delete an employee with EmployeeID = 3:
+
+sql
+Copy
+DELETE FROM Employees
+WHERE EmployeeID = 3;
+
+
+Table: Employees
+EmployeeID	FirstName	LastName	Age	Department
+1	          John	           Doe	        28	HR
+2	          Jane	           Smith	34	IT
+3	          Bob	           Johnson	25	Marketing
+
+
+
+2) NoSQL Databases: designed for unstructured data, scalability, and flexibility in data storage, especially for big data and real-time applications.
+eg:MongoDB, Cassandra, and Redis,
+
+
+
+MongoDB is a document database which is often referred to as a non-relational database. This does not mean that relational data cannot be stored in document databases. It means that relational data is stored differently. A better way to refer to it is as a non-tabular database.
+
+
+ In MongoDB, instead of tables these are called collections.
+
+
+In MongoDB, the data is stored in a different format compared to relational databases like SQL. MongoDB is a NoSQL database, and it stores data in documents (similar to JSON objects) rather than tables and rows.
+
+Let's convert the same "Employees" data you mentioned earlier into MongoDB's document format.
+
+Example of Data in MongoDB:
+In MongoDB, data is stored in collections (similar to tables in SQL), and each document is a record (similar to a row in SQL). Each document is a set of key-value pairs.
+
+MongoDB Collection: employees
+Here’s how the data would be represented in MongoDB as a document:
+
+json
+Copy
+{
+  "_id": ObjectId("unique-id-1"),
+  "EmployeeID": 1,
+  "FirstName": "John",
+  "LastName": "Doe",
+  "Age": 28,
+  "Department": "HR"
+},
+{
+  "_id": ObjectId("unique-id-2"),
+  "EmployeeID": 2,
+  "FirstName": "Jane",
+  "LastName": "Smith",
+  "Age": 34,
+  "Department": "IT"
+},
+{
+  "_id": ObjectId("unique-id-3"),
+  "EmployeeID": 3,
+  "FirstName": "Bob",
+  "LastName": "Johnson",
+  "Age": 25,
+  "Department": "Marketing"
+}
+Key Differences Between SQL and MongoDB Storage:
+Documents vs. Tables:
+
+In MongoDB, each employee record is a document in a collection. Each document is self-contained with all the data about that employee.
+In SQL, the data is stored in a structured table format with rows and columns.
+Data Representation:
+
+In MongoDB, each document is stored as a BSON (Binary JSON) object. This is similar to a JSON format, which allows more flexibility in the structure of the data (e.g., nested objects, arrays).
+In SQL, each row corresponds to a record, and each column corresponds to an attribute (field) of the record.
+No Fixed Schema:
+
+MongoDB doesn't enforce a rigid schema, meaning each document in a collection can have a different structure (e.g., some documents might have additional fields that others don't). This is unlike SQL, where every row must follow the table’s defined schema.
+Example MongoDB Operations
+Here are equivalent MongoDB operations to the SQL examples I gave earlier.
+
+1. Insert Data (equivalent to SQL INSERT)
+To insert a new employee into the employees collection in MongoDB, you would use the insertOne() method:
+
+javascript
+Copy
+db.employees.insertOne({
+  EmployeeID: 4,
+  FirstName: "Alice",
+  LastName: "Williams",
+  Age: 29,
+  Department: "Finance"
+});
+2. Find Data (equivalent to SQL SELECT)
+To find all employees:
+
+javascript
+Copy
+db.employees.find();
+To find employees in the "HR" department:
+
+javascript
+Copy
+db.employees.find({ Department: "HR" });
+3. Update Data (equivalent to SQL UPDATE)
+To update an employee's department:
+
+javascript
+Copy
+db.employees.updateOne(
+  { EmployeeID: 2 },
+  { $set: { Department: "Sales" } }
+);
+4. Delete Data (equivalent to SQL DELETE)
+To delete an employee with EmployeeID = 3:
+
+javascript
+Copy
+db.employees.deleteOne({ EmployeeID: 3 });
+Conclusion:
+In MongoDB, the same data is stored as documents in a collection. The structure is more flexible compared to SQL databases, where data is stored in tables with a fixed schema. MongoDB's document-based approach makes it suitable for applications that require scalability and flexibility, especially when handling unstructured or semi-structured data.
+
+
+
+
+The ObjectId is a 12-byte identifier that ensures uniqueness. It is often represented in hexadecimal form (e.g., "605c72ef15320723e5b78f56"), which MongoDB uses for indexing and as a primary key.
+
+
+Data Types: In BSON, there are additional types not present in standard JSON, such as:
+
+ObjectId: A unique identifier (used in _id).
+Date: BSON can store date objects.
+Binary: BSON can store binary data, like images or files.
+
+
+
+How BSON Differs from JSON:
+ObjectId: As mentioned, MongoDB automatically generates a unique ObjectId for each document if you don’t provide one, which is not present in JSON.
+
+Binary Data: BSON supports binary data types, such as BinData, which JSON does not.
+
+More Data Types: BSON allows for additional types like Date, RegEx (regular expressions), and Int64, which are not directly supported in JSON.
+
+
+BSON (Binary JSON) is a binary-encoded serialization format used by MongoDB to store data, supporting more data types and offering efficient storage and retrieval compared to standard JSON.
+
+Serialization is the process of converting data structures or objects into a format that can be easily stored (in a file or database) or transmitted (over a network).
+Binary encoding means that the data is stored in binary form (as 1s and 0s), which is more efficient than text-based formats like JSON.
+Example:
+A simple text-based format (like JSON) might represent a number as "age": 25.
+In BSON (binary), the number 25 would be encoded in binary, consuming less space and making it quicker to process.
+
+
+
+Indexing in MongoDB is a technique used to improve the speed and performance of database queries. It helps MongoDB locate and retrieve documents more quickly by maintaining an ordered structure of specific fields in the database. Without indexing, MongoDB would need to scan every document in a collection to find the ones matching a query, which could be inefficient, especially for large datasets.
+
+

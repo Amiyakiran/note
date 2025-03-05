@@ -117,6 +117,7 @@ STRUCTURE
           - db.users.deleteOne({uname:"jacob"})  - delete one document
           - db.users.deleteMany({uname:{$exists:true}}) - delete more than one document  
 
+
       16) Aggregation operations process multiple documents and return computed results.
           ----------------------
           -Group values from multiple documents together.
@@ -133,7 +134,37 @@ STRUCTURE
 
          - db.users.aggregate({$lookup:{from:'projects',localField:'_id',foreignField:'userId',as:'userProject'}})
          - both localField and ForeignField should have same value then only joing happens.
+    17) db.users.replaceOne({_id:ObjectId('664dcef711a66ddbe0e088df')},{name:'sutrishna sen',userid:3,age:34})
+    18) To remove the entire database in MongoDB, you can use the dropDatabase() method.
+    19) Indexes in mongodb help in easy access of mongodb data
+        Index in mongodb is created using createIndex() method
+           db.collectionname.createIndex({fieldname: 1 or -1})
+ Type of indexes 
+----------------
+1) single field
+2) compound 
+3) multi key
+ Single field index is used to create index to a single field in document
+--------------
+Syntax
 
+db.collectionname.createIndex({fieldname: 1 or -1})
+Compound index _ providing indexes to more than one field in a collection 
+---------------
+Syntax
+
+db.collectionname.createIndex({fieldname1: 1 or -1, field2: -1 or 1})
+
+Multikey - used to provide index to values stored in an array 
+-------
+
+Db.collectionname.createIndex({field: -1 or 1})
+
+To get all indexes 
+Db.collectionname.getIndexes()
+
+To drop a index
+db.collectionname.dropIndex({fieldname:-1or 1}
 
 creating project in  Mongodb atlas - cloud based
    ---------------
@@ -410,3 +441,153 @@ Create a database:
 6) Exit the Database
     EXIT;
 
+SQL Databases (Relational Databases)
+SQL databases (such as MySQL, PostgreSQL, and Microsoft SQL Server) are typically structured and use a fixed schema with tables and relationships between them. They generally scale in the following way:
+
+Vertical Scaling (Scaling Up):
+
+In SQL databases, the most common way to handle more load is to increase the power of the existing server. This is called vertical scaling.
+Example: You would add more CPU, RAM, or storage to a single server to handle more queries or data.
+While this can work for some time, there are limits to how much you can scale a single server. Once you hit those limits (e.g., physical hardware limits or cost constraints), you can no longer improve performance by simply upgrading hardware.
+Horizontal Scaling (Scaling Out):
+
+Horizontal scaling, where you add more servers to distribute the load, is possible but not as easy for SQL databases.
+In many SQL databases, you need to use techniques like sharding (splitting data across multiple servers) or replication (copying data to multiple servers). However, setting this up and managing it is complex.
+Example: A database might be split into multiple smaller parts, each running on a separate server, but ensuring consistency and handling complex relationships across those servers can be challenging.
+SQL databases are not designed with easy horizontal scaling in mind, and they require specialized tools or custom solutions to handle distribution and consistency across servers.
+NoSQL Databases (Non-relational Databases)
+NoSQL databases (such as MongoDB, Cassandra, and Couchbase) are designed to handle large-scale, distributed systems. They are generally schema-less and optimized for handling big volumes of data and flexible queries. They scale in the following way:
+
+Horizontal Scaling (Scaling Out):
+
+NoSQL databases are built for horizontal scaling from the ground up. This means that they can easily distribute data across multiple servers or nodes.
+As your application grows, you can simply add more servers to share the load. The system automatically distributes the data across these servers, which can increase capacity and performance with minimal additional setup.
+Example: If you’re using MongoDB, you can add more servers to your cluster, and the database will automatically manage where data is stored and how it’s queried across those servers.
+Sharding and Replication:
+
+Sharding: NoSQL databases often use sharding to divide large datasets into smaller, more manageable pieces and distribute those pieces across multiple machines. Each shard can handle a part of the data, and when you add more servers, they can take on more shards.
+Replication: NoSQL databases often replicate data across multiple servers to ensure availability and fault tolerance. If one server goes down, the data is still available on another server, improving reliability.
+These features make it easier for NoSQL databases to scale horizontally and manage very large datasets with high traffic.
+Key Differences in Scalability:
+SQL:
+
+Primarily scales vertically (upgrading a single server).
+Horizontal scaling is possible but complex and not native.
+Performance improvement after a certain point is limited because of hardware constraints.
+NoSQL:
+
+Designed to scale horizontally from the start (adding more servers to the system).
+Easily handles large datasets and high traffic by distributing data across multiple servers.
+More flexible and easier to scale as data grows because of built-in features like sharding and replication.
+Example to Illustrate:
+Imagine you have an e-commerce website, and as it grows, you need to handle millions of users and product listings.
+
+With a SQL database, you might start by putting all product data on one server. As traffic grows, you may need to upgrade the server's hardware (more CPU, RAM, etc.). If the traffic increases even further, you might need to split the data (sharding) across multiple servers, but it’s a complex process to keep everything consistent and ensure that users can still interact with the site smoothly.
+
+With a NoSQL database, you could start by putting data on one server. As your traffic grows, you can simply add more servers to your NoSQL cluster, and the system will handle distributing data across those servers. The scaling process is more seamless and automatic, without as much manual intervention.
+
+Summary:
+SQL databases are best suited for applications with a smaller number of servers or a relatively predictable load, and while they can scale horizontally, it’s more complex and less efficient compared to NoSQL.
+NoSQL databases are designed for large-scale, distributed applications and handle horizontal scaling more naturally and effectively, making them the preferred choice when you need to handle high-volume, high-traffic, or rapidly growing data.
+
+
+DATATYPES 
+---------
+
+MongoDB has a flexible schema and supports a variety of data types. Here's a list of the most commonly used data types in MongoDB:
+
+1. String
+-----------
+Description: Used for storing textual data. Strings in MongoDB are UTF-8 encoded.
+Example: "name": "John Doe"
+
+2. Integer
+----------
+Description: Used for storing whole numbers. MongoDB supports both 32-bit and 64-bit integers, depending on the platform.
+Example: "age": 25
+3. Double
+Description: Used for storing floating-point numbers (decimal values).
+Example: "price": 19.99
+4. Boolean
+Description: Used for storing binary data. A boolean value can only be true or false.
+Example: "isActive": true
+5. Null
+Description: Represents a null or missing value.
+Example: "middleName": null
+6. Array
+Description: Used to store an ordered list of values, which can be of different data types.
+Example: "tags": ["mongodb", "database", "NoSQL"]
+7. Object
+Description: A document embedded within another document. These are essentially key-value pairs that allow for nested data.
+Example:
+json
+Copy
+"address": {
+    "street": "123 Main St",
+    "city": "New York"
+}
+8. ObjectId
+Description: A special data type used as the unique identifier for documents in MongoDB. It’s typically used for primary keys (_id field).
+Example: "userId": ObjectId("507f191e810c19729de860ea")
+9. Date
+Description: Used for storing the date and time in ISO 8601 format. MongoDB stores dates as 64-bit integers, representing milliseconds since the Unix epoch.
+Example: "createdAt": ISODate("2025-03-05T10:00:00Z")
+10. Binary Data
+Description: Used for storing binary data, such as files or images.
+Example: "fileData": BinData(0,"aGVsbG8gd29ybGQ=")
+11. Regular Expression (RegEx)
+Description: Used for storing regular expressions. This can be useful for pattern matching in queries.
+Example: "pattern": /hello/i
+12. JavaScript
+Description: Used for storing JavaScript code.
+Example: "code": function() { return "hello"; }
+13. JavaScript (with Scope)
+Description: Similar to the standard JavaScript type, but it also allows you to specify a scope (variables that the JavaScript function can access).
+Example:
+json
+Copy
+"codeWithScope": {
+    "$code": "function() { return x + y; }",
+    "$scope": { "x": 10, "y": 5 }
+}
+14. MinKey
+Description: A special data type that is used to compare values that are less than all other BSON types. It's mostly used for sorting or querying.
+Example: MinKey()
+15. MaxKey
+Description: A special data type that is used to compare values that are greater than all other BSON types. It's typically used for sorting or querying.
+Example: MaxKey()
+16. Decimal128
+Description: A high-precision 128-bit decimal data type used for handling very high-precision decimal numbers.
+Example: "price": Decimal128("19.999999999999999")
+Summary:
+Here’s a quick list of the MongoDB data types:
+
+String
+Integer
+Double
+Boolean
+Null
+Array
+Object
+ObjectId
+Date
+Binary Data
+Regular Expression (RegEx)
+JavaScript
+JavaScript (with Scope)
+MinKey
+MaxKey
+Decimal128
+These types allow MongoDB to be very flexible in storing various forms of data, making it suitable for applications with evolving or dynamic data structures.
+
+
+The replaceOne() method replaces a single document that matches a given filter with a new document.
+----------------------
+Syntax:
+javascript
+Copy
+db.collection.replaceOne(
+   <filter>,         // Criteria to match the document
+   <replacement>,    // New document that will replace the existing document
+   { <options> }     // Optional settings (e.g., upsert)
+)

@@ -92,6 +92,7 @@ STRUCTURE
             - db.users.find({age:{$lte:25}}) - less than or equal to
             - db.users.find({age:{$gt:25}}) - greater than
             - db.users.find({age:{$gte:25}}) - greater than or equal to
+            - db.users.find({age:{$eq:20}})  - equal to
             - db.users.find({$or:[{age:{$gt:25}},{age:{$gt:30}}]}) - anyone condition to be true
             - db.users.find({$and:[{age:{$gt:17}},{age:{$lt:30}}]}) - both condition should  be true
             - db.users.find({address:{$exists:true}}) - return the document which have the key
@@ -139,32 +140,44 @@ STRUCTURE
     19) Indexes in mongodb help in easy access of mongodb data
         Index in mongodb is created using createIndex() method
            db.collectionname.createIndex({fieldname: 1 or -1})
- Type of indexes 
-----------------
-1) single field
-2) compound 
-3) multi key
- Single field index is used to create index to a single field in document
---------------
-Syntax
+           db.users.getIndexes()
+            [
+              { v: 2, key: { _id: 1 }, name: '_id_' },
+              { v: 2, key: { age: 1 }, name: 'age_1' }
+           ]
+            Version 1 (v: 1): This was the format used before MongoDB 3.4 for indexes.
+            Version 2 (v: 2): This is the index format used starting from MongoDB 3.4. It provides more efficient storage and improved performance.
+    
 
-db.collectionname.createIndex({fieldname: 1 or -1})
-Compound index _ providing indexes to more than one field in a collection 
----------------
-Syntax
 
-db.collectionname.createIndex({fieldname1: 1 or -1, field2: -1 or 1})
-
-Multikey - used to provide index to values stored in an array 
--------
-
-Db.collectionname.createIndex({field: -1 or 1})
-
-To get all indexes 
-Db.collectionname.getIndexes()
-
-To drop a index
-db.collectionname.dropIndex({fieldname:-1or 1}
+		 Type of indexes 
+		----------------
+		1) single field
+		2) compound 
+		3) multi key
+		 Single field index is used to create index to a single field in document
+		--------------
+		Syntax
+		
+		db.collectionname.createIndex({fieldname: 1 or -1})
+		Compound index _ providing indexes to more than one field in a collection 
+		---------------
+		Syntax
+		
+		db.collectionname.createIndex({fieldname1: 1 or -1, field2: -1 or 1})
+		
+		Multikey - used to provide index to values stored in an array 
+		-------
+		
+		Db.collectionname.createIndex({field: -1 or 1})
+		
+		To get all indexes 
+		Db.collectionname.getIndexes()
+		
+		To drop a index
+		db.collectionname.dropIndex({fieldname:-1or 1}
+		
+		 20) db.createCollection('collectionname') - create collection.
 
 creating project in  Mongodb atlas - cloud based
    ---------------

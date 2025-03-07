@@ -7,6 +7,19 @@ ANGULAR
 - latest version - angular 18 - nov
 - use real DOM
 
+ What is an AOT compilation
+---------------------------
+The Ahead-of-time (AOT) compiler converts the Angular HTML and TypeScript code into JavaScript during the build phase, i.e., before the browser downloads and runs the code.
+
+Some of its advantages are as follows. 
+
+Faster rendering
+Fewer asynchronous requests
+Smaller Angular framework download size
+Quick detection of template errors
+Better security
+
+The Just-in-Time (JIT) compilation process is a way of compiling computer code to machine code during execution or run time. It is also known as dynamic compilation. JIT compilation is the default when you run the ng build, or ng serve CLI commands.
 
 Basic Commands
 --------------
@@ -96,6 +109,18 @@ Lifecycle event sequence
 After your application instantiates a component or directive by calling its constructor, Angular calls the hook methods you have implemented at the appropriate point in the lifecycle of that instance.
 
 refer : https://angular.io/guide/lifecycle-hooks
+
+ Explain the lifecycle hooks in Angular
+In Angular, every component has a lifecycle. Angular creates and renders these components and destroys them before removing them from the DOM. This is achieved with the help of lifecycle hooks. Here's the list of them:
+
+ngOnChanges() - Responds when Angular sets/resets data-bound input properties.
+ngOnInit() - Initialize the directive/component after Angular first displays the data-bound properties and sets the directive/component's input properties/
+ngDoCheck() - Detect and act upon changes that Angular can't or won't detect.
+ngAfterContentInit() - Responds after Angular projects external content into the component's view.
+ngAfterContentChecked() - Respond after Angular checks the content projected into the component.
+ngAfterViewInit() - Respond after Angular initializes the component's views and child views.
+ngAfterViewChecked() - Respond after Angular checks the component's views and child views.
+ngOnDestroy - Cleanup just before Angular destroys the directive/component.
 
 
 Data binding
@@ -311,11 +336,25 @@ project
 
 
 
+What is a ngModule?
+NgModules are containers that reserve a code block to an application domain or a workflow. @NgModule takes a metadata object that generally describes the way to compile the template of a component and generate an injector at runtime. In addition, it identifies the module's components, directives, and pipes, making some of them public through the export property so that external components can use them.
 
 
+Explain the @Component Decorator.
+ The decorator’s purpose is to accept a metadata object that provides relevant information about the component.  
 
 
+What are the Promises and Observables in Angular? 
+While both the concepts deal with Asynchronous events in Angular, Promises handle one event at a time, while observables handle a sequence of events over some time. 
 
+Promises: They emit a single value at a time. They execute immediately after creation and are not cancellable. They are Push errors to the child's promises. 
+
+Observables: They are only executed when subscribed to them using the subscribe() method. They emit multiple values over some time. They help perform operations like forEach, filter, and retry. They deliver errors to the subscribers. When the unsubscribe() method is called, the listener stops receiving further values.
+
+What is Eager and Lazy Loading? 
+Eager loading is the default module-loading strategy. Feature modules under Eager loading are loaded before the application starts. This is typically used for small-size applications.
+
+Lazy loading dynamically loads the feature modules when there's a demand. This makes the application faster. It is used for bigger applications where all the modules are not required at the start of the application.
 
 
 

@@ -1,6 +1,9 @@
  MODULE - II
 -----------
 
+ECMAScript is the standard specification for scripting languages, which serves as the foundation for languages like JavaScript, JScript, and ActionScript. It is maintained by a group called ECMA International through the Technical Committee 39 (TC39). The specification defines the core features, syntax, and behavior that programming languages should adhere to in order to be compatible with ECMAScript.
+
+
 PROCEDURAL PROGRAMMING- programming paradigm where series of computational steps are carried out.Unlike oops,where data and methods were tied together(encapsulated)in a class or object,procedural programming uses data and methods as two different entities
 
 

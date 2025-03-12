@@ -91,6 +91,7 @@ features of react
   7) index.html - is the only page that load in the browser
 
   8)reportWebVitals.js - used to measure the performance of react application
+  9) eslint.config.js : file is used to configure ESLint, a popular tool for identifying and reporting on patterns found in JavaScript code. It helps maintain consistent coding standards and find errors in the codebase.
 
 
   component : basic unit of react application    

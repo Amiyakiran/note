@@ -209,6 +209,8 @@ features of react
  - when the state changes the entire component re-render.
    setState() - to change the value of a state 
 
+The super() method is necessary to initialize the parent class (React.Component) properly, so the component can inherit all the functionality it needs, like this.setState() and this.props.
+
 
 
 Use variables for local data that doesn't affect the component's rendering.

@@ -333,6 +333,47 @@ DATA STRUCTURE :
           18) lastIndexOf() - method returns the index (position) of the last occurrence of a specified value in a string
 
       - Nested array : array inside another array
+ Linear search:
+---------------
+Linear search is a simple search algorithm that sequentially checks each element in a list or array until the desired element is found or the entire list has been searched.
+
+ Binary search:
+----------------
+Binary Search is a more efficient search algorithm that finds the position of a target value within a sorted list or array. It works by repeatedly dividing the search interval in half, reducing the number of elements to check in each step.
+algorithm
+---------
+An algorithm is a step-by-step set of instructions or rules designed to perform a specific task or solve a particular problem.
+
+flow Chart
+-----------
+Flowcharts use several standard shapes to represent different types of actions or decisions. Here are the most commonly used shapes:
+
+1)Oval (or Ellipse):
+--------------------------
+Purpose: Used to represent the start and end points of the process.
+Example: "Start" or "End."
+
+2)Rectangle:
+-----------------
+Purpose: Represents a process or action step in the flowchart.
+Example: "Perform task" or "Calculate result."
+
+3)Diamond:
+-----------
+Purpose: Represents a decision point, where the flow can branch depending on a condition (usually yes/no or true/false).
+Example: "Is the task completed?" or "Is the value greater than 10?"
+
+4)Parallelogram:
+-------------------
+Purpose: Used for input or output operations, such as data entry or display.
+Example: "Enter data" or "Display result."
+
+5)Arrow:
+---------
+Purpose: Shows the flow or direction of the process from one step to the next.
+
+
+
 
 12) String: Sequence of character stored at different memory locations
     ------

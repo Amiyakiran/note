@@ -1,0 +1,50 @@
+--------------------------------NEXTJS--------------------------------------
+- Next js is a application for building the frontend of a fullstack project.
+- it is a react framework 
+- TO CREATE A PROJECT 
+  -------------------
+  Command: npx create-next-app@latest projectname
+  - like to use typescript ? NO
+  - like to use ESLint? yes  
+  - like to use Tailwind? yes 
+  - Like to code inside src directory? No 
+  - like to use App Router ? Yes
+  - like to use Turbopack? no 
+  - like to customize the imort alias? - no
+
+  Command to run :
+  npm run dev 
+
+- seo friendly 
+- ssr , ssg 
+out - ssg 
+.next - ssr 
+layouts - components that are common in all pages 
+    eg : navbar , footer 
+
+- meta data can be placed in different components 
+- no routing file 
+   - dynamic routing 
+        - slug (instead of id ) - converting the capital letter into small letter 
+          - space - hypen 
+          - special character will be removed    
+        - help in seo - while giving the title(keyword) we will get the particular link .
+
+turbopack - Turbopack is an incremental bundler optimized for JavaScript and TypeScript, written in Rust, and built into Next.js. 
+
+import alias - to auto import 
+
+
+formik  - form submission -plugin
+yupp - validation - plugin 
+
+
+entry point - layout.txs 
+- page.txs 
+page.module.css - css file of page 
+
+
+AWS  - sign In to console 
+s3 bucket 
+
+aws amplify - for ssr 

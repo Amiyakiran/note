@@ -548,6 +548,11 @@ Thunk
 - onMouseEnter={() => setOpen(true)} 
     onMouseLeave={() => setOpen(false)}
 
+Testing Tools  
+--------------
+1) unit testing  - Jest - Tests individual components or functions.
+2) integration testing  - React testing Library - Tests how modules interact with each other
+3) end to end testing  - Cypress - End-to-End (E2E) Testing is a type of testing that verifies the entire software flow — from start to finish — works as expected, including all integrated systems, databases, and external dependencies.
 
 
 
